@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://dog6uaqu0hvtf"]
+
+[ext_resource type="PackedScene" uid="uid://bon6gpknl7scd" path="res://Prefabs/player.tscn" id="1_vk57k"]
+[ext_resource type="Script" uid="uid://bdkuqgh16vxrw" path="res://ScriptsGD/spawner.gd" id="1_xfk5q"]
+[ext_resource type="PackedScene" uid="uid://bc6113vu0af6a" path="res://Prefabs/tubes.tscn" id="2_8ffim"]
+[ext_resource type="Texture2D" uid="uid://bwp7tyhrnydjo" path="res://Sprites/icon.svg" id="3_7p6j4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vk57k"]
+size = Vector2(0.248493, 0.79083)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ffim"]
+size = Vector2(21.7491, 20)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_xfk5q")
+pipe_scene = ExtResource("2_8ffim")
+
+[node name="Floor" type="StaticBody2D" parent="." groups=["death"]]
+position = Vector2(576.5, 608.625)
+scale = Vector2(1161, 87.25)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-0.371878, -1.45702)
+shape = SubResource("RectangleShape2D_vk57k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+position = Vector2(-0.372524, -1.44556)
+scale = Vector2(0.00193798, 0.00635745)
+texture = ExtResource("3_7p6j4")
+
+[node name="Ceiling" type="StaticBody2D" parent="." groups=["death"]]
+position = Vector2(138, -8)
+scale = Vector2(13.36, 1)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
+position = Vector2(0.502685, -1.54298)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_8ffim")
+
+[node name="Player" parent="." instance=ExtResource("1_vk57k")]
+position = Vector2(69, 215)
