@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://bc6113vu0af6a"]
 
-[ext_resource type="Texture2D" uid="uid://bwp7tyhrnydjo" path="res://Sprites/icon.svg" id="1_b6l0y"]
 [ext_resource type="Script" uid="uid://bs3rd1enq6lwn" path="res://ScriptsGD/tubes.gd" id="1_puq6c"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ffim"]
-size = Vector2(58, 383)
+[ext_resource type="Texture2D" uid="uid://d3854vpxshgii" path="res://Sprites/pipe.png" id="2_puq6c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfk5q"]
 size = Vector2(58, 385)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ffim"]
+size = Vector2(58, 383)
 
 [node name="Tubes" type="Node2D"]
 script = ExtResource("1_puq6c")
@@ -16,24 +16,25 @@ script = ExtResource("1_puq6c")
 z_index = -10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
-position = Vector2(9.53674e-07, 475.5)
-shape = SubResource("RectangleShape2D_8ffim")
+position = Vector2(9.53674e-07, -27.5)
+shape = SubResource("RectangleShape2D_xfk5q")
 
 [node name="Sprite2D" type="Sprite2D" parent="Top"]
 z_index = -10
-position = Vector2(0, 476)
-scale = Vector2(0.452, 3)
-texture = ExtResource("1_b6l0y")
+position = Vector2(-2.92063e-06, 15)
+scale = Vector2(0.442857, 0.5)
+texture = ExtResource("2_puq6c")
 
 [node name="Bottom" type="StaticBody2D" parent="." groups=["death"]]
 z_index = -10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
-position = Vector2(9.53674e-07, -27.5)
-shape = SubResource("RectangleShape2D_xfk5q")
+position = Vector2(9.53674e-07, 475.5)
+shape = SubResource("RectangleShape2D_8ffim")
 
 [node name="Sprite2D" type="Sprite2D" parent="Bottom"]
 z_index = -10
-position = Vector2(0, -27)
-scale = Vector2(0.452, 3)
-texture = ExtResource("1_b6l0y")
+position = Vector2(0.0507655, 434)
+rotation = 3.14159
+scale = Vector2(0.448512, 0.5)
+texture = ExtResource("2_puq6c")

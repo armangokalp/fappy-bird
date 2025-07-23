@@ -1,12 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dog6uaqu0hvtf"]
+[gd_scene load_steps=9 format=3 uid="uid://dog6uaqu0hvtf"]
 
 [ext_resource type="PackedScene" uid="uid://bon6gpknl7scd" path="res://Prefabs/player.tscn" id="1_vk57k"]
 [ext_resource type="Script" uid="uid://bdkuqgh16vxrw" path="res://ScriptsGD/spawner.gd" id="1_xfk5q"]
 [ext_resource type="PackedScene" uid="uid://bc6113vu0af6a" path="res://Prefabs/tubes.tscn" id="2_8ffim"]
 [ext_resource type="Texture2D" uid="uid://b4o083wnkpmme" path="res://Sprites/ground.png" id="3_7p6j4"]
-[ext_resource type="Script" uid="uid://clpbtbup3f4cn" path="res://ScriptsGD/floor.gd" id="3_evi0p"]
+[ext_resource type="Script" uid="uid://jl4w4pa0rq2v" path="res://Scenes/floor.gd" id="3_6444e"]
 [ext_resource type="Texture2D" uid="uid://26guxx1t1jwc" path="res://Sprites/ground2.png" id="5_evi0p"]
-[ext_resource type="Texture2D" uid="uid://mrsdov61w7cb" path="res://Sprites/background.png" id="7_lsmp6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vk57k"]
 size = Vector2(0.248493, 0.79083)
@@ -22,20 +21,18 @@ pipe_scene = ExtResource("2_8ffim")
 position = Vector2(576.5, 608.625)
 scale = Vector2(1161, 87.25)
 collision_layer = 3
-script = ExtResource("3_evi0p")
+script = ExtResource("3_6444e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2(-0.371878, -1.45702)
 shape = SubResource("RectangleShape2D_vk57k")
 
 [node name="Sprite2D" type="Sprite2D" parent="Floor"]
-z_index = 5
 position = Vector2(-0.37207, -1.02728)
 scale = Vector2(0.000864189, 0.0114621)
 texture = ExtResource("3_7p6j4")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Floor"]
-z_index = 5
 position = Vector2(-0.1236, -1.02722)
 scale = Vector2(0.000861326, 0.0114613)
 texture = ExtResource("5_evi0p")
@@ -51,9 +48,3 @@ shape = SubResource("RectangleShape2D_8ffim")
 
 [node name="Player" parent="." instance=ExtResource("1_vk57k")]
 position = Vector2(69, 215)
-
-[node name="Background" type="Sprite2D" parent="."]
-z_index = -20
-position = Vector2(143, 229)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("7_lsmp6")

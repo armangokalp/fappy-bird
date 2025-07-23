@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bon6gpknl7scd"]
 
 [ext_resource type="Script" uid="uid://b5d7otoicc50k" path="res://ScriptsGD/Movement.gd" id="1_5wxv7"]
-[ext_resource type="Texture2D" uid="uid://bwp7tyhrnydjo" path="res://Sprites/icon.svg" id="1_y6xdh"]
+[ext_resource type="Texture2D" uid="uid://cs6hlt25ck4id" path="res://Sprites/maxresdefault (1).jpg" id="2_5wxv7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ffim"]
 size = Vector2(32, 22)
@@ -16,9 +16,9 @@ max_contacts_reported = 4
 script = ExtResource("1_5wxv7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 10)
-scale = Vector2(0.27, 0.185)
-texture = ExtResource("1_y6xdh")
+position = Vector2(-7.15256e-07, 10)
+scale = Vector2(0.025, 0.0305556)
+texture = ExtResource("2_5wxv7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 10)
