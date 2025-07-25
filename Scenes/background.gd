@@ -1,9 +1,9 @@
-extends StaticBody2D
+extends Node2D
 
-@export var speed: float = 120.0
+@export var speed: float = 12.0
 
-@onready var sprite1: Sprite2D = $Sprite2D
-@onready var sprite2: Sprite2D = $Sprite2D2
+@onready var sprite1: Sprite2D = $Background1
+@onready var sprite2: Sprite2D = $Background2
 
 var sprite_width: float = 0.0
 var off_screen_threshold: float = 0.0
@@ -21,7 +21,7 @@ func _ready():
 
 func _process(delta):
 	if !mainScene.game_over:
-		var move_amount = speed * delta * 0.00087
+		var move_amount = speed * delta
 		sprite1.position.x -= move_amount
 		sprite2.position.x -= move_amount
 		

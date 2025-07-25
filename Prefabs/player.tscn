@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bon6gpknl7scd"]
+[gd_scene load_steps=6 format=3 uid="uid://bon6gpknl7scd"]
 
 [ext_resource type="Script" uid="uid://b5d7otoicc50k" path="res://ScriptsGD/Movement.gd" id="1_5wxv7"]
-[ext_resource type="Texture2D" uid="uid://cs6hlt25ck4id" path="res://Sprites/maxresdefault (1).jpg" id="2_5wxv7"]
+[ext_resource type="Texture2D" uid="uid://dhvv3j4ln8jsj" path="res://Sprites/osaka.png" id="2_2nftw"]
+[ext_resource type="AudioStream" uid="uid://bfvhyf85mu08k" path="res://Sounds/osaka_fly.wav" id="3_y5hcb"]
+[ext_resource type="AudioStream" uid="uid://b7via4a4dasyt" path="res://Sounds/osaka-ded.wav" id="4_2nftw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ffim"]
-size = Vector2(32, 22)
+size = Vector2(44, 30)
 
-[node name="Player" type="RigidBody2D"]
+[node name="Player" type="RigidBody2D" groups=["player"]]
 collision_mask = 2
 gravity_scale = 0.0
 lock_rotation = true
@@ -16,12 +18,20 @@ max_contacts_reported = 4
 script = ExtResource("1_5wxv7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-7.15256e-07, 10)
-scale = Vector2(0.025, 0.0305556)
-texture = ExtResource("2_5wxv7")
+position = Vector2(0.500001, 10)
+scale = Vector2(0.14, 0.164)
+texture = ExtResource("2_2nftw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 10)
+position = Vector2(-1, 10)
+scale = Vector2(2.035, 2.05)
 shape = SubResource("RectangleShape2D_8ffim")
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_y5hcb")
+mix_target = 2
+
+[node name="death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2nftw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

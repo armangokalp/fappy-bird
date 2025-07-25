@@ -1,23 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://bc6113vu0af6a"]
+[gd_scene load_steps=9 format=3 uid="uid://bc6113vu0af6a"]
 
 [ext_resource type="Script" uid="uid://bs3rd1enq6lwn" path="res://ScriptsGD/tubes.gd" id="1_puq6c"]
 [ext_resource type="Texture2D" uid="uid://d3854vpxshgii" path="res://Sprites/pipe.png" id="2_puq6c"]
+[ext_resource type="AudioStream" uid="uid://32stwxi2fqa7" path="res://Sounds/sata-andagi-made-with-Voicemod.wav" id="3_p2abs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6l84"]
+size = Vector2(11, 119)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfk5q"]
-size = Vector2(58, 385)
+size = Vector2(58, 286)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_puq6c"]
+size = Vector2(62, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ffim"]
-size = Vector2(58, 383)
+size = Vector2(58, 285)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2abs"]
+size = Vector2(62, 15)
 
 [node name="Tubes" type="Node2D"]
 script = ExtResource("1_puq6c")
+
+[node name="Area2D" type="Area2D" parent="." groups=["score"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(25.5, 224.5)
+shape = SubResource("RectangleShape2D_d6l84")
 
 [node name="Top" type="StaticBody2D" parent="." groups=["death"]]
 z_index = -10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
-position = Vector2(9.53674e-07, -27.5)
+position = Vector2(9.53674e-07, 7)
 shape = SubResource("RectangleShape2D_xfk5q")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Top"]
+position = Vector2(0, 157.5)
+shape = SubResource("RectangleShape2D_puq6c")
 
 [node name="Sprite2D" type="Sprite2D" parent="Top"]
 z_index = -10
@@ -29,8 +49,13 @@ texture = ExtResource("2_puq6c")
 z_index = -10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
-position = Vector2(9.53674e-07, 475.5)
+position = Vector2(9.53674e-07, 441.5)
 shape = SubResource("RectangleShape2D_8ffim")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bottom"]
+position = Vector2(0, 291.5)
+scale = Vector2(1.01, 1)
+shape = SubResource("RectangleShape2D_p2abs")
 
 [node name="Sprite2D" type="Sprite2D" parent="Bottom"]
 z_index = -10
@@ -38,3 +63,8 @@ position = Vector2(0.0507655, 434)
 rotation = 3.14159
 scale = Vector2(0.448512, 0.5)
 texture = ExtResource("2_puq6c")
+
+[node name="inc_score" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_p2abs")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

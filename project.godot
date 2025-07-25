@@ -13,13 +13,15 @@ config_version=5
 config/name="Fappy Bird"
 run/main_scene="uid://byx6psd5hvsjh"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://Sprites/icon.svg"
+config/icon="uid://dhvv3j4ln8jsj"
 
 [display]
 
-window/size/viewport_width=288
-window/size/viewport_height=512
+window/size/viewport_width=576
+window/size/viewport_height=1024
+window/size/sharp_corners=true
 window/stretch/mode="viewport"
+window/handheld/orientation=1
 
 [dotnet]
 
@@ -41,3 +43,5 @@ ui_accept={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true
+2d/snap/snap_2d_vertices_to_pixel=true

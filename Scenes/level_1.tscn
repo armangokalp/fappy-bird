@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dog6uaqu0hvtf"]
+[gd_scene load_steps=11 format=3 uid="uid://dog6uaqu0hvtf"]
 
 [ext_resource type="PackedScene" uid="uid://bon6gpknl7scd" path="res://Prefabs/player.tscn" id="1_vk57k"]
 [ext_resource type="Script" uid="uid://bdkuqgh16vxrw" path="res://ScriptsGD/spawner.gd" id="1_xfk5q"]
@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b4o083wnkpmme" path="res://Sprites/ground.png" id="3_7p6j4"]
 [ext_resource type="Script" uid="uid://clpbtbup3f4cn" path="res://ScriptsGD/floor.gd" id="3_evi0p"]
 [ext_resource type="Texture2D" uid="uid://26guxx1t1jwc" path="res://Sprites/ground2.png" id="5_evi0p"]
-[ext_resource type="Texture2D" uid="uid://mrsdov61w7cb" path="res://Sprites/background.png" id="7_lsmp6"]
+[ext_resource type="Texture2D" uid="uid://byri44crn64yo" path="res://Sprites/VVxYMB4ju8evTtzf4aF9pP.jpg" id="7_lsmp6"]
+[ext_resource type="Script" uid="uid://dylnlke3atlbq" path="res://Scenes/background.gd" id="8_xrdnt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vk57k"]
 size = Vector2(0.248493, 0.79083)
@@ -52,8 +53,17 @@ shape = SubResource("RectangleShape2D_8ffim")
 [node name="Player" parent="." instance=ExtResource("1_vk57k")]
 position = Vector2(69, 215)
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Node2D" parent="."]
+script = ExtResource("8_xrdnt")
+
+[node name="Background1" type="Sprite2D" parent="Background"]
 z_index = -20
-position = Vector2(143, 229)
-scale = Vector2(0.3, 0.3)
+position = Vector2(549, 306)
+scale = Vector2(0.575, 0.575)
+texture = ExtResource("7_lsmp6")
+
+[node name="Background2" type="Sprite2D" parent="Background"]
+z_index = -20
+position = Vector2(1653, 306)
+scale = Vector2(-0.575, 0.575)
 texture = ExtResource("7_lsmp6")
